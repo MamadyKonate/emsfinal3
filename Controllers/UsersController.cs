@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using emsfinal3.Data;
 using emsfinal3.Models;
@@ -262,7 +262,6 @@ namespace emsfinal3.Controllers
             }
             return View(user);
         }
-
        
         // GET: Users/Delete/5
         ///<summary>

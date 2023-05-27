@@ -1,5 +1,7 @@
 using emsfinal3.Controllers;
 using emsfinal3.Data;
+using emsfinal3.ViewModels;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -41,6 +43,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseSession(); //for session
+
 app.UseRouting();
 
 app.UseAuthorization();
