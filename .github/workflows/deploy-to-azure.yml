@@ -17,7 +17,7 @@
 # For more information on the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # For more samples to get started with GitHub Action workflows to deploy to Azure: https://github.com/Azure/actions-workflow-samples
 
-name: Build and deploy ASP.Net Core app to an Azure Web App
+name: Build, Test, and Deploy to Azure
 
 env:
   AZURE_WEBAPP_NAME: emsfinal3    # set this to the name of your Azure Web App
@@ -55,6 +55,12 @@ jobs:
 
       - name: dotnet publish
         run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
+
+      - name: Build test projects
+        run: dotnet build --configuration Release --no-restore --verbosity normal
+
+      - name: Run XUnit tests
+        run: dotnet test --configuration Release --no-build --verbosity normal --filter FullyQualifiedName~Unit.Tests
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
@@ -105,8 +111,8 @@ jobs:
         uses: azure/webapps-deploy@v2
         with:
           app-name: ${{ env.AZURE_WEBAPP_NAME }}
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_AF3F4E87D8F945F6B454525B972488FE  }}
-          package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE
+
           
   deploy-to-production:
     permissions:
