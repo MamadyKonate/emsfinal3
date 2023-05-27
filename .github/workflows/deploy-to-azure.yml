@@ -60,6 +60,9 @@ jobs:
         run: dotnet build --configuration Release --no-restore --verbosity normal
       - name: Change directory to root
         run: cd /
+        
+      - name: navigate to test dir
+        run: cd ./emsfinal3/emsfinal3test/
       - name: Run XUnit tests
         run: dotnet test --configuration Release --no-build --verbosity normal --filter FullyQualifiedName~Unit.Tests
 
