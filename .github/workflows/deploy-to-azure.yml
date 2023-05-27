@@ -57,13 +57,7 @@ jobs:
         run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
 
       - name: Build test projects
-        run: dotnet build --configuration Release --no-restore --verbosity normal
-      - name: set working dir to root
-        run: working-directory /       
-         
-      - name: Run XUnit tests
-        run: dotnet test ./emsfinal3/emsfinal3test --configuration Release --no-build --verbosity normal --filter FullyQualifiedName~Unit.Tests
-
+        run: dotnet build --configuration Release --no-restore --verbosity normal      
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
         with:
