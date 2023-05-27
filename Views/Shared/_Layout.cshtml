@@ -1,4 +1,46 @@
-﻿<!DOCTYPE html>
+@inject IHttpContextAccessor contex
+@inject CurrentUser2 user
+@*@inject EMSDbContext _context*@
+
+@using emsfinal3.Data
+
+@using emsfinal3.Controllers
+@using Microsoft.AspNetCore.Http;
+@{
+    var email = "";
+    var name = "";
+    var currentYear = DateTime.Now.Year;
+    var compName = "No company set up yet!";
+
+    bool loggedin = false;
+    if (user.GetLoggedInUser() != null)
+    {
+        name = string.Concat(user.GetLoggedInUser().FirstName, " ", user.GetLoggedInUser().Surname);
+        email = user.GetLoggedInUser().Email;
+        loggedin = true;
+    }
+
+    ViewData["Title"] = "Index";
+    var welcomeMsg = "Welcome ";
+    var _context = new EMSDbContext();
+    var comp = _context.Companies.ToList().Where(c => !c.IsToBeDeleted).FirstOrDefault();
+
+    if (comp != null)
+    {
+        compName = comp.Name;
+        welcomeMsg = String.Concat(welcomeMsg, "to ", comp.Name);
+    }
+    
+
+    
+    if (TempData["CompanyMsg"] != null)  {
+       
+        welcomeMsg = TempData["CompanyMsg"].ToString();
+        //welcomeMsg += "- Please ensure there is an active Conpany Details set up!";
+    }
+}
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
