@@ -59,7 +59,7 @@ jobs:
       - name: Build test projects
         run: dotnet build --configuration Release --no-restore --verbosity normal
       - name: set working dir
-        working-directory: cd /   
+        run: working-directory cd /   
       - name: Change directory to root
          
       - name: Run XUnit tests
