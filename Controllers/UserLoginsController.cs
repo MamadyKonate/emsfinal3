@@ -115,11 +115,11 @@ namespace emsfinal3.Controllers
         /// <summary>
         /// Setting logged in user's IsUserLoggedIn to false and redirecting the user to login page
         /// </summary>
-        /// <returns></returns>
+        /// <returns></returns>    
         public IActionResult Logout()
         {
             _currentUser.GetLoggedInUser().IsUserLoggedIn = false;            
-            return View("Index");
+            return RedirectToAction("Index", "UserLogins");
         }
 
        

@@ -1,17 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-
 using emsfinal3.Data;
 using emsfinal3.Models;
 using emsfinal3.Services;
-using emsfinal3.ViewModels;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace emsfinal3.Controllers
 {
@@ -271,7 +262,6 @@ namespace emsfinal3.Controllers
             }
             return View(user);
         }
-
        
         // GET: Users/Delete/5
         ///<summary>
