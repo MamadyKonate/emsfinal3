@@ -107,3 +107,26 @@ jobs:
           app-name: ${{ env.AZURE_WEBAPP_NAME }}
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_AF3F4E87D8F945F6B454525B972488FE  }}
           package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
+          
+  deploy-to-production:
+    permissions:
+      contents: none
+    runs-on: ubuntu-latest
+    needs: [deploy-to-staging]
+    environment:
+      name: 'Production'
+      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+
+    steps:
+      - name: Download artifact from build job
+        uses: actions/download-artifact@v3
+        with:
+          name: .net-app
+
+      - name: Deploy to Azure Web App
+        id: deploy-to-webapp
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: ${{ env.AZURE_WEBAPP_NAME }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_AF3F4E87D8F945F6B454525B972488FE  }}
+          package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
