@@ -262,7 +262,6 @@ namespace emsfinal3.Controllers
             }
             return View(user);
         }
-
        
         // GET: Users/Delete/5
         ///<summary>
