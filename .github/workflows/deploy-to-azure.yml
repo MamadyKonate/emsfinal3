@@ -58,10 +58,12 @@ jobs:
 
       - name: Build test projects
         run: dotnet build --configuration Release --no-restore --verbosity normal
+      - name: set working dir
+        working-directory: cd /   
       - name: Change directory to root
-        run: cd /     
+         
       - name: Run XUnit tests
-        run: dotnet test ./emsfinal3test.csproj --configuration Release --no-build --verbosity normal --filter FullyQualifiedName~Unit.Tests
+        run: dotnet test ./emsfinal3/emsfinal3test --configuration Release --no-build --verbosity normal --filter FullyQualifiedName~Unit.Tests
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
