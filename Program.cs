@@ -40,6 +40,7 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
+app.UseSession(); //for session
 app.UseRouting();
 
 app.UseAuthorization();
