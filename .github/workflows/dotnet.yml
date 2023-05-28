@@ -27,6 +27,6 @@ jobs:
     - name: Change dir
       run: | 
        cd ..
-   #    cd ./emsfinal3test.csproj
+       cd ./emsfiinal3test
     - name: Test
-      run: dotnet test ./emsfiinal3test/emsfiinal3test.csproj --no-build --verbosity normal
+      run: dotnet test ./emsfiinal3test.csproj --no-build --verbosity normal
