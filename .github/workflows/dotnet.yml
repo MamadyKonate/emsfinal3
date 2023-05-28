@@ -25,6 +25,8 @@ jobs:
     - name: Build
       run: dotnet build  ./emsfinal3.csproj --no-restore
     - name: Change dir
-      run: cd ./emsfinal3
+      run: | 
+       cd .
+       cd ./emsfinal3
     - name: Test
       run: dotnet test ./emsfinal3tests --no-build --verbosity normal
