@@ -7,8 +7,8 @@ namespace emsfinal3.Models
         [Key]
         public int Id { get; set; }
         [Required]
-        public string UserEmail { get; set; }
+        public string UserEmail { get; set; } = "";
         [Required]
-        public string EncPass { get; set; }        
+        public string EncPass { get; set; } = "";
     }
 }
