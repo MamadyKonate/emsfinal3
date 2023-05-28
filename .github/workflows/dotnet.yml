@@ -29,4 +29,4 @@ jobs:
        cd ..
        cd ./emsfinal3test
     - name: Test
-      run: dotnet test ./emsfinal3tests --no-build --verbosity normal
+      run: dotnet test ./emsfinal3test.csproj --no-build --verbosity normal
