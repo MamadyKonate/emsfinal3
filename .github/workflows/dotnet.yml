@@ -20,9 +20,9 @@ jobs:
       with:
         dotnet-version: 7.0.x
     - name: Restore dependencies
-      run: dotnet restore ./emsfinal3.csproj
+      run: dotnet restore ./emsfinal3.sln
     - name: Build
-      run: dotnet build  ./emsfinal3.csproj --no-restore
+      run: dotnet build  ./emsfinal3.sln--no-restore
     - name: Change dir 2
       run: cd .
     
