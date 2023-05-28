@@ -9,16 +9,16 @@ namespace emsfinal3.Models
         public int Id { get; set; }
         [Required]
         [StringLength(40, MinimumLength = 2)]
-        public string FirstName { get; set; }
+        public string FirstName { get; set; } = "";
         [Required]
         [StringLength(40, MinimumLength = 2)]
-        public string Surname { get; set; }
+        public string Surname { get; set; } = "";
         [Required, EmailAddress]
-        public string Email { get; set; }
+        public string Email { get; set; } = "";
         [Required]
-        public string JobTitle { get; set; }
+        public string JobTitle { get; set; } = "";
         [Required, EmailAddress]
-        public string ManagerEmail { get; set; }
+        public string ManagerEmail { get; set; } = "";
         [Required, DataType(DataType.Date)]       
         public DateOnly DOB { get; set; }
         public double LeaveEntitement { get; set; } = 25;
