@@ -25,7 +25,9 @@ jobs:
     - name: Build
       run: dotnet build  ./emsfinal3.csproj --no-restore
     - name: Change dir
-      run: cd ..
+      run: |
+       cd .
+       ls
     - name: Change dir 2
        cd ./emsfiinal3test
     - name: Test
