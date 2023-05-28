@@ -27,6 +27,6 @@ jobs:
     - name: Change dir
       run: | 
        cd ..
-       cd ./emsfinal3
+       cd ./emsfinal3test
     - name: Test
       run: dotnet test ./emsfinal3tests --no-build --verbosity normal
