@@ -23,10 +23,10 @@ jobs:
       run: dotnet restore ./emsfinal3.csproj
     - name: Build
       run: dotnet build  ./emsfinal3.csproj --no-restore
-    - name: Change dir 2
+    - name: Change dir 1
       run: cd ..
-#    - name: Change dir 2
-#      working-directory: emsfinal3test    
+    - name: Change dir 2
+      run: cd ..    
     
     - name: Test
       run: dotnet test ./emsfinal3test/emsfiinal3test.csproj --no-build --verbosity normal
