@@ -56,8 +56,8 @@ jobs:
       - name: dotnet publish
         run: dotnet publish ./emsfinal3.csproj -c Release -o ${{env.DOTNET_ROOT}}/myapp
 
-  #    - name: Build test projects
-   #     run: dotnet test ./emsfinal3test.csproj --configuration Release --no-restore --verbosity normal      
+      - name: Build test projects
+         echo "Test step goes here"
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
         with:
